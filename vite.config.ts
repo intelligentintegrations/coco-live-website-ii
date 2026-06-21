@@ -7,6 +7,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Force the Nitro server build to target Vercel so the deployed app is served
+  // by Vercel's Build Output API. Without this, a self-deploy produces a
+  // Vite-only build (no server) and the production URL returns NOT_FOUND.
+  nitro: { preset: "vercel" },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
