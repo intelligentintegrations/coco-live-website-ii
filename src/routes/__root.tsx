@@ -135,10 +135,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 }catch(e){}})();
         `.trim(),
       },
-      // Plausible Analytics — replace data-domain with your real domain after signing up at plausible.io
+      // Plausible Analytics
       {
         defer: true,
-        "data-domain": "coco-money-club-landing.lovable.app",
+        "data-domain": "cocosmoneyclub.com.au",
         src: "https://plausible.io/js/script.js",
       },
     ],
