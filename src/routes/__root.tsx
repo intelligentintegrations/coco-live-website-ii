@@ -78,21 +78,50 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Coco's Money Club — Raise a child who's clever with money" },
-      { name: "description", content: "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum." },
-      { property: "og:title", content: "Coco's Money Club — Raise a child who's clever with money" },
-      { property: "og:description", content: "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum." },
+      {
+        name: "description",
+        content:
+          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
+      },
+      {
+        property: "og:title",
+        content: "Coco's Money Club — Raise a child who's clever with money",
+      },
+      {
+        property: "og:description",
+        content:
+          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Coco's Money Club — Raise a child who's clever with money" },
-      { name: "twitter:description", content: "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea" },
+      {
+        name: "twitter:title",
+        content: "Coco's Money Club — Raise a child who's clever with money",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap",
+      },
     ],
     scripts: [
       // Self-exclusion: visit /?exclude=me on each of your devices to flag them.
@@ -106,10 +135,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 }catch(e){}})();
         `.trim(),
       },
-      // Plausible Analytics — replace data-domain with your real domain after signing up at plausible.io
+      // Plausible Analytics
       {
         defer: true,
-        "data-domain": "coco-money-club-landing.lovable.app",
+        "data-domain": "cocosmoneyclub.com.au",
         src: "https://plausible.io/js/script.js",
       },
     ],
