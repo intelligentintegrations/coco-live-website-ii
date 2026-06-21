@@ -72,50 +72,111 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const SITE_URL = "https://cocosmoneyclub.com.au";
+const SITE_NAME = "Coco's Money Club";
+const SITE_TITLE = "Coco's Money Club — Raise a child who's clever with money";
+const SITE_DESCRIPTION =
+  "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
+// Structured data for richer search results (Organization, Product/Offer, FAQ).
+const STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon.png`,
+      description: SITE_DESCRIPTION,
+      email: "hello@greenly.finance",
+      areaServed: "AU",
+    },
+    {
+      "@type": "Product",
+      name: SITE_NAME,
+      image: OG_IMAGE,
+      description: SITE_DESCRIPTION,
+      brand: { "@id": `${SITE_URL}/#organization` },
+      offers: {
+        "@type": "Offer",
+        price: "29.00",
+        priceCurrency: "AUD",
+        availability: "https://schema.org/InStock",
+        url: SITE_URL,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          q: "Is this another screen or app?",
+          a: "The opposite — all paper, all hands-on. A break from screens.",
+        },
+        {
+          q: "Do I have to teach anything?",
+          a: "No. Your child does it. You get a 30-second note if you'd like to join in.",
+        },
+        {
+          q: "Can I cancel anytime?",
+          a: "Yes — cancel anytime in one click. And if your very first envelope isn't right for your family, email me within 14 days and I'll refund that first month in full.",
+        },
+        {
+          q: "Do you ship to me?",
+          a: "Yes — we post Australia-wide, right to your letterbox.",
+        },
+      ].map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+  ],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Coco's Money Club — Raise a child who's clever with money" },
       {
-        name: "description",
-        content:
-          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
-      {
-        property: "og:title",
-        content: "Coco's Money Club — Raise a child who's clever with money",
-      },
-      {
-        property: "og:description",
-        content:
-          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
-      },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#FBF3E7" },
+      { name: "author", content: SITE_NAME },
+      // Open Graph
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:locale", content: "en_AU" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1024" },
+      { property: "og:image:height", content: "1024" },
+      {
+        property: "og:image:alt",
+        content: "Coco the quokka holding a letter, beside the Coco's Money Club name",
+      },
+      // Twitter
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
       {
-        name: "twitter:title",
-        content: "Coco's Money Club — Raise a child who's clever with money",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "A monthly letter from Coco the quokka teaches kids 6–9 about money — screen-free, story-led, built by an accountant and a mum.",
-      },
-      {
-        property: "og:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d1328079-14fc-4011-ab1a-b0d1b8df20ea",
+        name: "twitter:image:alt",
+        content: "Coco the quokka holding a letter, beside the Coco's Money Club name",
       },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "icon", href: "/icon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -124,6 +185,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
+      // Structured data for rich search results.
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(STRUCTURED_DATA),
+      },
       // Self-exclusion: visit /?exclude=me on each of your devices to flag them.
       // Works with Plausible's built-in localStorage.plausible_ignore check.
       {
