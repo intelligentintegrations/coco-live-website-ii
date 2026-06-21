@@ -64,14 +64,14 @@
 :root {
   --radius: 1.25rem;
 
-  --cream: #FBF3E2;
-  --sky: #4FB7E8;
-  --orange: #F39A3E;
-  --yellow: #FBD24B;
-  --eucalyptus: #7FB069;
-  --coral: #D85A30;
-  --coral-dark: #B4421E;
-  --ink: #4A1B0C;
+  --cream: #fbf3e2;
+  --sky: #4fb7e8;
+  --orange: #f39a3e;
+  --yellow: #fbd24b;
+  --eucalyptus: #7fb069;
+  --coral: #d85a30;
+  --coral-dark: #b4421e;
+  --ink: #4a1b0c;
 
   --background: var(--cream);
   --foreground: var(--ink);
@@ -169,7 +169,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }

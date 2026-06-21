@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import cocoHeroAsset from "@/assets/coco-waving.png.asset.json";
-import cocoMapAsset from "@/assets/coco-hero-v2.png.asset.json";
-import cocoMeetAsset from "@/assets/coco-meet.png.asset.json";
-import flatlayAsset from "@/assets/flatlay.png.asset.json";
-import silvinaAsset from "@/assets/silvina.jpg.asset.json";
+import cocoHeroAsset from "@/assets/coco-waving.png";
+import cocoMapAsset from "@/assets/coco-hero-v2.png";
+import cocoMeetAsset from "@/assets/coco-meet.svg";
+import flatlayAsset from "@/assets/flatlay.png";
+import silvinaAsset from "@/assets/silvina.jpg";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -32,7 +32,13 @@ function Check() {
       className="mt-0.5 inline-flex h-7 w-7 flex-none items-center justify-center rounded-full bg-eucalyptus text-white"
     >
       <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4">
-        <path d="M4 10.5l4 4 8-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+          d="M4 10.5l4 4 8-9"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </span>
   );
@@ -70,7 +76,9 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`rounded-2xl bg-cream/60 p-5 shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:p-6 ${className}`}>
+    <div
+      className={`rounded-2xl bg-cream/60 p-5 shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:p-6 ${className}`}
+    >
       {children}
     </div>
   );
@@ -93,10 +101,13 @@ function LandingPage() {
             <div className="order-2 text-center md:order-1 md:text-left">
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-[3.25rem]">
                 Raise a child who's clever with money —{" "}
-                <span className="text-coral">without lectures, screens, or being an expert yourself.</span>
+                <span className="text-coral">
+                  without lectures, screens, or being an expert yourself.
+                </span>
               </h1>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/80 sm:text-xl md:mx-0">
-                Every month, a little quokka named Coco sends your child a real letter in the post — a story, a hands-on adventure, and one money idea they'll actually remember.
+                Every month, a little quokka named Coco sends your child a real letter in the post —
+                a story, a hands-on adventure, and one money idea they'll actually remember.
               </p>
               <div className="mt-9 flex justify-center md:justify-start">
                 <CTAButton>Claim a founding spot</CTAButton>
@@ -105,7 +116,7 @@ function LandingPage() {
             <div className="order-1 md:order-2">
               <div className="mx-auto w-full max-w-[460px]">
                 <img
-                  src={cocoHeroAsset.url}
+                  src={cocoHeroAsset}
                   alt="Coco the quokka waving hello with a letter in hand"
                   className="block h-auto w-full"
                 />
@@ -125,7 +136,10 @@ function LandingPage() {
             "Every \u201Ceducational\u201D app is just more screen time — and you want less, not more.",
             "You worry they're learning that money = stuff, and happiness = buying things.",
           ].map((t) => (
-            <li key={t} className="flex gap-4 rounded-2xl bg-cream p-5 text-base leading-relaxed sm:text-lg">
+            <li
+              key={t}
+              className="flex gap-4 rounded-2xl bg-cream p-5 text-base leading-relaxed sm:text-lg"
+            >
               <Dot />
               <span>{t}</span>
             </li>
@@ -143,7 +157,10 @@ function LandingPage() {
             "They learned it screen-free, while you got ten quiet minutes.",
             "And every month, you did nothing — it just arrived, and it just worked.",
           ].map((t) => (
-            <li key={t} className="flex gap-4 rounded-2xl bg-white p-5 text-base leading-relaxed shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:text-lg">
+            <li
+              key={t}
+              className="flex gap-4 rounded-2xl bg-white p-5 text-base leading-relaxed shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:text-lg"
+            >
               <Check />
               <span>{t}</span>
             </li>
@@ -158,10 +175,12 @@ function LandingPage() {
       <Section bg="bg-white" className="text-center">
         <H2>Meet Coco</H2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/80 sm:text-xl">
-          Coco's Money Club is a monthly money adventure that lands in your child's letterbox. A little Australian quokka who teaches one money idea a month, through story and play. No apps. No prep for you.
+          Coco's Money Club is a monthly money adventure that lands in your child's letterbox. A
+          little Australian quokka who teaches one money idea a month, through story and play. No
+          apps. No prep for you.
         </p>
         <img
-          src={cocoMeetAsset.url}
+          src={cocoMeetAsset}
           alt="Coco the quokka waving hello"
           className="mx-auto mt-10 h-auto w-full max-w-xs sm:max-w-sm"
         />
@@ -173,10 +192,21 @@ function LandingPage() {
         <ol className="mt-10 space-y-4">
           {[
             { n: 1, t: "It arrives", d: "a flat envelope addressed to your child, every month." },
-            { n: 2, t: "They dive in", d: "the letter, the adventure, the stickers, mostly on their own." },
-            { n: 3, t: "They grow", d: "they build their Money World and pick up one money skill for life." },
+            {
+              n: 2,
+              t: "They dive in",
+              d: "the letter, the adventure, the stickers, mostly on their own.",
+            },
+            {
+              n: 3,
+              t: "They grow",
+              d: "they build their Money World and pick up one money skill for life.",
+            },
           ].map((step) => (
-            <li key={step.n} className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-[0_2px_10px_rgba(74,27,12,0.05)]">
+            <li
+              key={step.n}
+              className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-[0_2px_10px_rgba(74,27,12,0.05)]"
+            >
               <span className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-sky text-xl font-bold text-white">
                 {step.n}
               </span>
@@ -195,24 +225,47 @@ function LandingPage() {
       <Section bg="bg-white">
         <H2>The 12-month journey</H2>
         <p className="mx-auto mt-4 max-w-xl text-center text-base leading-relaxed text-ink/70 sm:text-lg">
-          Each month adds a new piece to your child's Money World — a growing map of everything they've learned.
+          Each month adds a new piece to your child's Money World — a growing map of everything
+          they've learned.
         </p>
         <div className="mx-auto mt-8 w-full max-w-[520px] overflow-hidden rounded-3xl shadow-xl ring-1 ring-ink/5">
           <img
-            src={cocoMapAsset.url}
+            src={cocoMapAsset}
             alt="Illustrated map of Coco's World with little shops, trees, and gold coins"
             className="block h-auto w-full"
           />
         </div>
         <div className="mt-10 space-y-4">
           {[
-            { a: "Act 1", t: "What money is", d: "a tool, where it comes from, every coin is a choice.", c: "bg-sky" },
-            { a: "Act 2", t: "Choosing with care", d: "the story behind things, \u201Cdo I really want this?\u201D, patience.", c: "bg-orange" },
-            { a: "Act 3", t: "Directing money", d: "saving for what matters, spending on purpose, giving.", c: "bg-eucalyptus" },
-            { a: "Act 4", t: "Beyond money", d: "caring for what we have, making something, what truly makes us happy.", c: "bg-coral" },
+            {
+              a: "Act 1",
+              t: "What money is",
+              d: "a tool, where it comes from, every coin is a choice.",
+              c: "bg-sky",
+            },
+            {
+              a: "Act 2",
+              t: "Choosing with care",
+              d: "the story behind things, \u201Cdo I really want this?\u201D, patience.",
+              c: "bg-orange",
+            },
+            {
+              a: "Act 3",
+              t: "Directing money",
+              d: "saving for what matters, spending on purpose, giving.",
+              c: "bg-eucalyptus",
+            },
+            {
+              a: "Act 4",
+              t: "Beyond money",
+              d: "caring for what we have, making something, what truly makes us happy.",
+              c: "bg-coral",
+            },
           ].map((act) => (
             <div key={act.a} className="rounded-2xl bg-cream p-6">
-              <span className={`inline-block rounded-full ${act.c} px-3 py-1 text-xs font-bold uppercase tracking-wider text-white`}>
+              <span
+                className={`inline-block rounded-full ${act.c} px-3 py-1 text-xs font-bold uppercase tracking-wider text-white`}
+              >
                 {act.a}
               </span>
               <p className="mt-3 text-xl font-bold text-ink">{act.t}</p>
@@ -227,13 +280,15 @@ function LandingPage() {
         <H2>Why an accountant built this</H2>
         <div className="mt-8 flex justify-center">
           <img
-            src={silvinaAsset.url}
+            src={silvinaAsset}
             alt="Silvina, founder of Coco's Money Club"
             className="h-28 w-28 rounded-full object-cover shadow-[0_4px_14px_rgba(74,27,12,0.15)] ring-4 ring-white sm:h-32 sm:w-32"
           />
         </div>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/80 sm:text-xl">
-          Hi — I'm Silvina. By day I build money systems for businesses worth millions. I'm also a mum to a little girl. I'm building this for her — and for your kids too: real money sense, taught with warmth, on paper, by someone who actually does this for a living.
+          Hi — I'm Silvina. By day I build money systems for businesses worth millions. I'm also a
+          mum to a little girl. I'm building this for her — and for your kids too: real money sense,
+          taught with warmth, on paper, by someone who actually does this for a living.
         </p>
       </Section>
 
@@ -242,7 +297,7 @@ function LandingPage() {
         <H2>What's inside every month</H2>
         <div className="mt-10 overflow-hidden rounded-3xl bg-cream">
           <img
-            src={flatlayAsset.url}
+            src={flatlayAsset}
             alt="A flat-lay of Coco's monthly envelope: letter, coins, activity sheet, stickers and map"
             className="mx-auto block h-auto w-full"
           />
@@ -256,8 +311,13 @@ function LandingPage() {
             { icon: "📮", t: "A pass-it-on postcard to send to a friend." },
             { icon: "📝", t: "A note just for you — 30 seconds, no prep." },
           ].map((item) => (
-            <li key={item.t} className="flex items-start gap-4 rounded-2xl bg-cream p-5 text-base leading-relaxed sm:text-lg">
-              <span aria-hidden className="text-2xl leading-none">{item.icon}</span>
+            <li
+              key={item.t}
+              className="flex items-start gap-4 rounded-2xl bg-cream p-5 text-base leading-relaxed sm:text-lg"
+            >
+              <span aria-hidden className="text-2xl leading-none">
+                {item.icon}
+              </span>
               <span>{item.t}</span>
             </li>
           ))}
@@ -274,7 +334,10 @@ function LandingPage() {
             "You'd rather they learned offline, away from a screen.",
             "You believe the best things in life aren't things.",
           ].map((t) => (
-            <li key={t} className="flex gap-4 rounded-2xl bg-white p-5 text-base leading-relaxed shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:text-lg">
+            <li
+              key={t}
+              className="flex gap-4 rounded-2xl bg-white p-5 text-base leading-relaxed shadow-[0_2px_10px_rgba(74,27,12,0.05)] sm:text-lg"
+            >
               <Check />
               <span>{t}</span>
             </li>
@@ -301,7 +364,9 @@ function LandingPage() {
             </a>
           </div>
           <div className="mt-6 border-t border-ink/10 pt-6">
-            <p className="text-sm text-ink/70">Or prepay the year for $290 — that's 2 months free.</p>
+            <p className="text-sm text-ink/70">
+              Or prepay the year for $290 — that's 2 months free.
+            </p>
             <div className="mt-4 flex justify-center">
               <a
                 href="https://buy.stripe.com/dRmaEWgDrd2c89MgQpaEE02"
@@ -312,7 +377,9 @@ function LandingPage() {
             </div>
           </div>
           <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-ink/70">
-            Try your first month risk-free — if it's not right for your family, just email me within 14 days of your first envelope arriving and I'll refund that month in full, no questions asked.
+            Try your first month risk-free — if it's not right for your family, just email me within
+            14 days of your first envelope arriving and I'll refund that month in full, no questions
+            asked.
           </p>
           <ul className="mx-auto mt-8 max-w-sm space-y-3 text-left text-base">
             {[
@@ -334,13 +401,31 @@ function LandingPage() {
         <H2>A few quick questions</H2>
         <div className="mt-10 space-y-4">
           {[
-            { q: "Is this another screen or app?", a: "The opposite — all paper, all hands-on. A break from screens." },
-            { q: "Do I have to teach anything?", a: "No. Your child does it. You get a 30-second note if you'd like to join in." },
-            { q: "Can I cancel anytime?", a: "Yes — cancel anytime in one click. And if your very first envelope isn't right for your family, email me within 14 days and I'll refund that first month in full." },
-            { q: "Do you ship to me?", a: "Yes — we post Australia-wide, right to your letterbox. Wherever you are in Australia, Coco's letter will find you." },
-            { q: "I've got another question.", a: "Just email me at hello@greenly.finance and I'll get back to you personally — I'm a real mum, not a call centre." },
+            {
+              q: "Is this another screen or app?",
+              a: "The opposite — all paper, all hands-on. A break from screens.",
+            },
+            {
+              q: "Do I have to teach anything?",
+              a: "No. Your child does it. You get a 30-second note if you'd like to join in.",
+            },
+            {
+              q: "Can I cancel anytime?",
+              a: "Yes — cancel anytime in one click. And if your very first envelope isn't right for your family, email me within 14 days and I'll refund that first month in full.",
+            },
+            {
+              q: "Do you ship to me?",
+              a: "Yes — we post Australia-wide, right to your letterbox. Wherever you are in Australia, Coco's letter will find you.",
+            },
+            {
+              q: "I've got another question.",
+              a: "Just email me at hello@greenly.finance and I'll get back to you personally — I'm a real mum, not a call centre.",
+            },
           ].map((f) => (
-            <div key={f.q} className="rounded-2xl bg-white p-6 shadow-[0_2px_10px_rgba(74,27,12,0.05)]">
+            <div
+              key={f.q}
+              className="rounded-2xl bg-white p-6 shadow-[0_2px_10px_rgba(74,27,12,0.05)]"
+            >
               <p className="text-lg font-bold text-ink">{f.q}</p>
               <p className="mt-2 text-base leading-relaxed text-ink/75">{f.a}</p>
             </div>
@@ -351,7 +436,8 @@ function LandingPage() {
       {/* 13. CLOSING */}
       <Section bg="bg-cream" className="text-center">
         <p className="mx-auto max-w-xl text-2xl font-bold leading-snug text-ink sm:text-3xl">
-          One day your child will manage their own money. This is where it begins — quietly, monthly, in the letterbox.
+          One day your child will manage their own money. This is where it begins — quietly,
+          monthly, in the letterbox.
         </p>
         <div className="mt-10 flex justify-center">
           <CTAButton>Claim your founding spot</CTAButton>
@@ -363,7 +449,8 @@ function LandingPage() {
         <div className="mx-auto w-full max-w-[560px] px-5 pb-4 sm:px-6">
           <div className="rounded-2xl border border-ink/10 bg-white/60 p-6 text-center">
             <p className="text-sm leading-relaxed text-ink/70 sm:text-base">
-              Not ready to join yet? Grab my free guide — 5 screen-free ways to teach your kids about money.
+              Not ready to join yet? Grab my free guide — 5 screen-free ways to teach your kids
+              about money.
             </p>
             <div className="mt-4 flex justify-center">
               <a
