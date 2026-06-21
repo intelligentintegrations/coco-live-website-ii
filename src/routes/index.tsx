@@ -118,6 +118,10 @@ function LandingPage() {
                 <img
                   src={cocoHeroAsset}
                   alt="Coco the quokka waving hello with a letter in hand"
+                  width={1024}
+                  height={1024}
+                  fetchPriority="high"
+                  decoding="async"
                   className="block h-auto w-full"
                 />
               </div>
@@ -182,6 +186,8 @@ function LandingPage() {
         <img
           src={cocoMeetAsset}
           alt="Coco the quokka waving hello"
+          loading="lazy"
+          decoding="async"
           className="mx-auto mt-10 h-auto w-full max-w-xs sm:max-w-sm"
         />
       </Section>
@@ -232,6 +238,10 @@ function LandingPage() {
           <img
             src={cocoMapAsset}
             alt="Illustrated map of Coco's World with little shops, trees, and gold coins"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
             className="block h-auto w-full"
           />
         </div>
@@ -282,6 +292,10 @@ function LandingPage() {
           <img
             src={silvinaAsset}
             alt="Silvina, founder of Coco's Money Club"
+            width={1277}
+            height={1920}
+            loading="lazy"
+            decoding="async"
             className="h-28 w-28 rounded-full object-cover shadow-[0_4px_14px_rgba(74,27,12,0.15)] ring-4 ring-white sm:h-32 sm:w-32"
           />
         </div>
@@ -299,6 +313,10 @@ function LandingPage() {
           <img
             src={flatlayAsset}
             alt="A flat-lay of Coco's monthly envelope: letter, coins, activity sheet, stickers and map"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
             className="mx-auto block h-auto w-full"
           />
         </div>
