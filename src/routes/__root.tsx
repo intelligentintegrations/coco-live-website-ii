@@ -90,7 +90,7 @@ const STRUCTURED_DATA = {
       url: SITE_URL,
       logo: `${SITE_URL}/icon.png`,
       description: SITE_DESCRIPTION,
-      email: "hello@greenly.finance",
+      email: "hello@cocosmoneyclub.com.au",
       areaServed: "AU",
     },
     {

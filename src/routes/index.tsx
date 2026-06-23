@@ -11,6 +11,43 @@ export const Route = createFileRoute("/")({
 
 const CTA_URL = "https://buy.stripe.com/9B6cN4drf6DOfCefMlaEE01";
 
+const PLANS = [
+  {
+    name: "Monthly",
+    price: "$29",
+    period: "/month",
+    tagline: "Pay as you go, cancel anytime.",
+    features: ["A new envelope every month", "Cancel in one click, anytime", "Ships Australia-wide"],
+    cta: "Start monthly",
+    url: "https://buy.stripe.com/9B6cN4drf6DOfCefMlaEE01",
+    featured: false,
+  },
+  {
+    name: "Quarterly",
+    price: "$65",
+    period: "/3 months",
+    tagline: "Save 25% with code COCO25.",
+    features: [
+      "Three months of envelopes",
+      "25% off with code COCO25",
+      "The best way to try the club",
+    ],
+    cta: "Try 3 months",
+    url: "https://buy.stripe.com/6oUdR8af3fakblYas1aEE03",
+    featured: true,
+  },
+  {
+    name: "Yearly",
+    price: "$290",
+    period: "/year",
+    tagline: "Two months free vs monthly.",
+    features: ["A full year of envelopes", "2 months free", "Our best value"],
+    cta: "Join yearly",
+    url: "https://buy.stripe.com/dRmaEWgDrd2c89MgQpaEE02",
+    featured: false,
+  },
+];
+
 function CTAButton({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center">
@@ -110,7 +147,7 @@ function LandingPage() {
                 a story, a hands-on adventure, and one money idea they'll actually remember.
               </p>
               <div className="mt-9 flex justify-center md:justify-start">
-                <CTAButton>Claim a founding spot</CTAButton>
+                <CTAButton>Start your subscription</CTAButton>
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -171,7 +208,7 @@ function LandingPage() {
           ))}
         </ul>
         <div className="mt-12 flex justify-center">
-          <CTAButton>Claim a founding spot</CTAButton>
+          <CTAButton>Start your subscription</CTAButton>
         </div>
       </Section>
 
@@ -364,55 +401,70 @@ function LandingPage() {
       </Section>
 
       {/* 11. OFFER */}
-      <Section bg="bg-white">
-        <div className="mx-auto rounded-3xl border-2 border-coral bg-cream p-8 text-center shadow-[0_10px_30px_rgba(216,90,48,0.15)] sm:p-12">
-          <p className="inline-block rounded-full bg-coral/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-coral">
-            Founding family offer
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-[1080px] px-5 py-16 sm:px-6 sm:py-24">
+          <H2>Choose your plan</H2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-base leading-relaxed text-ink/70 sm:text-lg">
+            One little quokka, three easy ways to join. Cancel anytime — and your first month is
+            covered by our money-back guarantee.
           </p>
-          <p className="mt-6 text-5xl font-bold text-ink sm:text-6xl">
-            $29<span className="text-2xl font-bold text-ink/60">/month</span>
-          </p>
-          <p className="mt-2 text-sm font-semibold text-ink/65">founding price, locked for life</p>
-          <div className="mt-8 flex justify-center">
-            <a
-              href={CTA_URL}
-              className="inline-flex items-center justify-center rounded-full bg-coral px-8 py-4 text-base font-bold text-white shadow-[0_4px_14px_rgba(216,90,48,0.35)] transition hover:bg-[var(--coral-dark)] hover:-translate-y-0.5 active:translate-y-0 sm:text-lg"
-            >
-              Claim a founding spot — $29/month
-            </a>
-          </div>
-          <div className="mt-6 border-t border-ink/10 pt-6">
-            <p className="text-sm text-ink/70">
-              Or prepay the year for $290 — that's 2 months free.
-            </p>
-            <div className="mt-4 flex justify-center">
-              <a
-                href="https://buy.stripe.com/dRmaEWgDrd2c89MgQpaEE02"
-                className="inline-flex items-center justify-center rounded-full border-2 border-coral bg-transparent px-6 py-2.5 text-sm font-bold text-coral transition hover:bg-coral/5"
+          <div className="mt-12 grid items-stretch gap-6 md:grid-cols-3">
+            {PLANS.map((plan) => (
+              <div
+                key={plan.name}
+                className={`relative flex flex-col rounded-3xl p-7 text-center sm:p-8 ${
+                  plan.featured
+                    ? "border-2 border-coral bg-cream shadow-[0_12px_34px_rgba(216,90,48,0.18)] md:-translate-y-3"
+                    : "border-2 border-ink/10 bg-cream/60 shadow-[0_4px_16px_rgba(74,27,12,0.06)]"
+                }`}
               >
-                Get a year — $290
-              </a>
-            </div>
+                {plan.featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-4 py-1 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_4px_12px_rgba(216,90,48,0.35)]">
+                    Most popular
+                  </span>
+                )}
+                <p
+                  className={`text-lg font-bold uppercase tracking-wide ${
+                    plan.featured ? "text-coral" : "text-ink/70"
+                  }`}
+                >
+                  {plan.name}
+                </p>
+                <p className="mt-4 text-5xl font-bold text-ink">
+                  {plan.price}
+                  <span className="text-lg font-bold text-ink/55">{plan.period}</span>
+                </p>
+                <p className="mt-3 text-sm font-semibold text-ink/65">{plan.tagline}</p>
+                <ul className="mt-7 flex-1 space-y-3 text-left text-base">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <Check />
+                      <span className="leading-relaxed">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <a
+                    href={plan.url}
+                    className={`inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-bold transition hover:-translate-y-0.5 active:translate-y-0 sm:text-lg ${
+                      plan.featured
+                        ? "bg-coral text-white shadow-[0_4px_14px_rgba(216,90,48,0.35)] hover:bg-[var(--coral-dark)]"
+                        : "border-2 border-coral bg-transparent text-coral hover:bg-coral/5"
+                    }`}
+                  >
+                    {plan.cta}
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-ink/70">
+          <p className="mx-auto mt-10 max-w-md text-center text-sm leading-relaxed text-ink/70">
             Try your first month risk-free — if it's not right for your family, just email me within
             14 days of your first envelope arriving and I'll refund that month in full, no questions
             asked.
           </p>
-          <ul className="mx-auto mt-8 max-w-sm space-y-3 text-left text-base">
-            {[
-              "Only 10 founding families",
-              "First envelope ships in July",
-              "First-month money-back guarantee",
-            ].map((t) => (
-              <li key={t} className="flex items-start gap-3">
-                <Check />
-                <span>{t}</span>
-              </li>
-            ))}
-          </ul>
         </div>
-      </Section>
+      </section>
 
       {/* 12. FAQ */}
       <Section bg="bg-cream">
@@ -437,7 +489,7 @@ function LandingPage() {
             },
             {
               q: "I've got another question.",
-              a: "Just email me at hello@greenly.finance and I'll get back to you personally — I'm a real mum, not a call centre.",
+              a: "Just email me at hello@cocosmoneyclub.com.au and I'll get back to you personally — I'm a real mum, not a call centre.",
             },
           ].map((f) => (
             <div
@@ -458,7 +510,7 @@ function LandingPage() {
           monthly, in the letterbox.
         </p>
         <div className="mt-10 flex justify-center">
-          <CTAButton>Claim your founding spot</CTAButton>
+          <CTAButton>Join Coco's Money Club</CTAButton>
         </div>
       </Section>
 
@@ -486,8 +538,11 @@ function LandingPage() {
       <footer className="bg-cream pb-10 pt-2 text-center text-xs text-ink/55">
         <p className="mb-2 text-sm text-ink/70">
           Questions? Email me at{" "}
-          <a href="mailto:hello@greenly.finance" className="font-semibold text-ink underline">
-            hello@greenly.finance
+          <a
+            href="mailto:hello@cocosmoneyclub.com.au"
+            className="font-semibold text-ink underline"
+          >
+            hello@cocosmoneyclub.com.au
           </a>{" "}
           — I answer personally.
         </p>
